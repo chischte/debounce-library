@@ -10,36 +10,33 @@
 #include "Arduino.h"
 #include "Debounce.h"
 
-void Debounce::Debounce(int BUTTON_PIN)
+Debounce::Debounce(const byte BUTTON_PIN)
 {
-  pinMode(BUTTON_PIN, INPUT);
- }
+  _BUTTON_PIN = BUTTON_PIN;
+}
 //***************************************************************************
 //LIBRARY FUNCTIONS:
 //***************************************************************************
- 
 
-  
-  bool Debounce::requestButtonState()
+bool Debounce::requestButtonState()
+{
+
+  _currentButtonState = digitalRead(_BUTTON_PIN);
+
+  if (_currentButtonState != _debouncedButtonState && _debounceTimerSet == false)
   {
-  _currentButtonState = digitalRead(BUTTON_PIN);
-   
-   if (_currentButtonState != _debouncedButtonState && _debounceTimerSet == false)
-  {
-      _prevTime = millis()
-	  _debounceTimerSet = true;
+    _prevTime = millis();
+    _debounceTimerSet = true;
   }
 
-  if (millis() -_prevTime > _debounceTime )
+  if (millis() - _prevTime > _debounceTime)
   {
-    debounceTimerSet = false;// debouncetimer can be reset
+    _debounceTimerSet = false; // debouncetimer can be reset
     if (_currentButtonState != _debouncedButtonState)
     {
-          _debouncedButtonState = _currentButtonState;
+      _debouncedButtonState = _currentButtonState;
     }
-	return _currentButtonState;
-	//return 1;
-	
-  }
-  }
 
+    return _currentButtonState;
+  }
+}

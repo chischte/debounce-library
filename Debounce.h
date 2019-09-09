@@ -14,19 +14,19 @@
 
 class Debounce
 {
-public:
-  Debounce(int BUTTON_PIN);
-  bool requestButtonState();
- 
+  public:
+    Debounce(const byte BUTTON_PIN);
+    bool requestButtonState();
 
-private:
-  bool _debouncedButtonState;
-  bool _currentButtonState;
-  bool _debounceTimerSet=0; 
- 
-  int _debounceTime = 10;
-  unsigned long _prevTime;
- 
+  private:
+    bool _debouncedButtonState;
+    bool _currentButtonState;
+    bool _debounceTimerSet = 0;
+    
+	byte _BUTTON_PIN;
+	int _debounceTime = 10;
+    
+	unsigned long _prevTime;
 };
 
 #endif
