@@ -1,63 +1,42 @@
 /*
  * *****************************************************************************
- * EEPROM_Counter.cpp
- * Library to store values on the arduino EEPROM memory
+ * Debounce.cpp
+ * Library to debounce a mechanical push-button
  * Michael Wettstein
  * September 2019, Zürich
  * *****************************************************************************
  */
 
 #include "Arduino.h"
-#include "Cylinder.h"
+#include "Debounce.h"
 
-Cylinder::Cylinder(int pin)
+void Debounce::Debounce(int BUTTON_PIN)
 {
-  pinMode(pin, OUTPUT);
-  _pin = pin;
-}
+  pinMode(BUTTON_PIN, INPUT);
+ }
 //***************************************************************************
 //LIBRARY FUNCTIONS:
 //***************************************************************************
-void Cylinder::stroke(int push_time, int release_time)
-{
-  if (_stroke_completed == true) //RESET TIMER ONCE AT BEGINNING
+ 
+
+  
+  bool Debounce::requestButtonState()
   {
-    digitalWrite(_pin, HIGH);
-    _state = HIGH;
-    _prev_time = millis();
-    _stroke_completed = false;
+  _currentButtonState = digitalRead(BUTTON_PIN);
+   
+   if (_currentButtonState != _debouncedButtonState && _debounceTimerSet == false)
+  {
+      _prevTime = millis()
+	  _debounceTimerSet = true;
   }
-  if (millis() - _prev_time > push_time)
+
+  if (millis() -_prevTime > _debounceTime )
   {
-    digitalWrite(_pin, LOW);
-    _state = LOW;
-    if (millis() - _prev_time > push_time + release_time)
+    debounceTimerSet = false;// debouncetimer can be reset
+    if (_currentButtonState != _debouncedButtonState)
     {
-      _stroke_completed = true; //TRIGGERS NEXT CYCLE STATE
+          _debouncedButtonState = _currentButtonState;
     }
+	return _currentButtonState;
   }
-}
-//***************************************************************************
-bool Cylinder::stroke_completed()
-{
-  return _stroke_completed;
-}
-//***************************************************************************
-void Cylinder::toggle()
-{
-  _state = !_state;
-  digitalWrite((_pin), _state);
-}
-//***************************************************************************
-void Cylinder::set(bool set_state)
-{
-  digitalWrite(_pin, set_state);
-  _state = set_state;
-}
-//***************************************************************************
-bool Cylinder::request_state()
-{
-  _state = (digitalRead(_pin));
-  return _state;
-}
-//***************************************************************************
+

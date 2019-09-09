@@ -1,32 +1,32 @@
 /*
  * *****************************************************************************
- * EEPROM_Counter.h
- * Library to store values on the arduino EEPROM memory
+ * Debounce.h
+ * Library to debounce a mechanical push-button
  * Michael Wettstein
  * September 2019, Zürich
  * *****************************************************************************
  */
 
-#ifndef EEPROM_Counter_h
-#define EEPROM_Counter_h
+#ifndef Debounce_h
+#define Debounce_h
 
 #include "Arduino.h"
 
-class EEPROM_Counter
+class Debounce
 {
 public:
-  Cylinder(int pin);
-  void stroke(int push_time, int release_time);
-  void toggle();
-  void set(bool set_state);
-  bool request_state();
-  bool stroke_completed();
+  Debounce(int BUTTON_PIN);
+  bool requestButtonState();
+ 
 
 private:
-  int _pin;
-  bool _state;
-  unsigned long _prev_time;
-  bool _stroke_completed = true;
+  bool _debouncedButtonState;
+  bool _currentButtonState;
+  bool _debounceTimerSet=0; 
+ 
+  int _debounceTime = 10;
+  unsigned long _prevTime;
+ 
 };
 
 #endif
