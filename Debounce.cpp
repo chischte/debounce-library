@@ -38,5 +38,8 @@ void Debounce::Debounce(int BUTTON_PIN)
           _debouncedButtonState = _currentButtonState;
     }
 	return _currentButtonState;
+	//return 1;
+	
+  }
   }
 
