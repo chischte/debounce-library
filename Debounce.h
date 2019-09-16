@@ -12,21 +12,28 @@
 
 #include "Arduino.h"
 
-class Debounce
-{
-  public:
+class Debounce {
+public:
+    // FUNCTIONS:
     Debounce(const byte BUTTON_PIN);
     bool requestButtonState();
+    void setDebounceTime(int debounce_time);
 
-  private:
+    // VARIABLES:
+    // n.a.
+
+private:
+    // FUNCTIONS:
+    // n.a.
+
+    // VARIABLES:
+    byte _BUTTON_PIN;
     bool _debouncedButtonState;
     bool _currentButtonState;
-    bool _debounceTimerSet = 0;
-    
-	byte _BUTTON_PIN;
-	int _debounceTime = 10;
-    
-	unsigned long _prevTime;
+    bool _debounceTimerSet = false;
+    int _debounceTime = 10;
+    unsigned long _prevTime;
+
 };
 
 #endif

@@ -36,7 +36,10 @@ bool Debounce::requestButtonState()
     {
       _debouncedButtonState = _currentButtonState;
     }
-
     return _currentButtonState;
   }
+}
+
+void Debounce::setDebounceTime(int debounceTime){
+    _debounceTime=debounceTime;
 }
