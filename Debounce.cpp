@@ -27,7 +27,7 @@ bool Debounce::requestButtonState() {
 
   // DETECT IF THE BUTTON STATE HAS CHANGED:
   if (_currentButtonState != _debouncedButtonState && _debounceTimerSet == false) {
-    // IN THE FIRST RUNG,SET THE DEBOUNCE TIMER:
+    // IN THE FIRST RUN,SET THE DEBOUNCE TIMER:
     _prevTime = millis();
     _debounceTimerSet = true;
   }
