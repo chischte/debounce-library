@@ -56,12 +56,16 @@ bool Debounce::requestButtonState() {
 }
 
 bool Debounce::switchedHigh() {
+  Debounce::requestButtonState();
+
   //RETURN THE INFORMATION IF THE BUTTON HAS SWITCHED HIGH, AND RESET IT:
   bool switchedHigh = _buttonSwitchedHigh;
   _buttonSwitchedHigh = false;
   return switchedHigh;
 }
 bool Debounce::switchedLow() {
+  Debounce::requestButtonState();
+
   //RETURN THE INFORMATION IF THE BUTTON HAS SWITCHED LOW, AND RESET IT:
   bool switchedLow = _buttonSwitchedLow;
   _buttonSwitchedLow = false;
