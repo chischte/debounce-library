@@ -15,6 +15,7 @@ Debounce	KEYWORD1
 #######################################
 
 requestButtonState	KEYWORD2
+setDebounceTime	KEYWORD2
 
 ######################################
 # Constants (LITERAL1)
