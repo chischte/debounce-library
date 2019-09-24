@@ -1,6 +1,6 @@
 # debounce-library 
 
-**Library to debounce mechanical switches and push buttons and detect button state changes**
+**Library to debounce mechanical switches and push buttons, detect button state changes**
 
 
 Library Functions
