@@ -18,12 +18,12 @@ Library Functions
 
 	// FIND OUT IF THE BUTTON HAS SWITCHED TO HIGH
 	testSwitch.switchedHigh(); // returns 1 if a switch to high has happened
-	
+
 	// FIND OUT IF THE BUTTON HAS SWITCHED TO LOW
 	testSwitch.switchedLow(); // returns 1 if a switch to low has happened
  
 
-**An example of how the functions can be used can be found in the example code "debounce_example_code".**	
+**An example of how the functions can be used can be found in the example code.**	
   
 
 Installation
