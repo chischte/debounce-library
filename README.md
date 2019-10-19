@@ -18,9 +18,11 @@ Library Functions
 
 	// FIND OUT IF THE BUTTON HAS SWITCHED TO HIGH
 	testSwitch.switchedHigh(); // returns 1 if a switch to high has happened
+	// the high flag will be reset after one inquiry
 
 	// FIND OUT IF THE BUTTON HAS SWITCHED TO LOW
 	testSwitch.switchedLow(); // returns 1 if a switch to low has happened
+	// the low flag will be reset after one inquiry
  
 
 **An example of how the functions can be used can be found in the example code.**	
