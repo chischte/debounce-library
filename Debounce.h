@@ -32,11 +32,11 @@ private:
   byte _BUTTON_PIN;
   bool _buttonSwitchedHigh = false;
   bool _buttonSwitchedLow = false;
-  bool _debouncedButtonState;
-  bool _currentButtonState;
   bool _debounceTimerSet = false;
+  bool _debouncedButtonState = 0;
+  bool _currentButtonState = 0;
   unsigned int _debounceTime = 10;
-  unsigned long _prevTime;
+  unsigned long _prevTime = 0;
 
 };
 
