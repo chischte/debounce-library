@@ -16,10 +16,10 @@ class Debounce {
 public:
   // FUNCTIONS:
   Debounce(const byte BUTTON_PIN);
-  bool requestButtonState();
-  bool switchedHigh();
-  bool switchedLow();
-  void setDebounceTime(int debounce_time);
+  bool get_button_state();
+  bool switched_high();
+  bool switched_low();
+  void set_debounce_time(int debounce_time);
 
   // VARIABLES:
   // n.a.
@@ -30,13 +30,13 @@ private:
 
   // VARIABLES:
   byte _BUTTON_PIN;
-  bool _buttonSwitchedHigh = false;
-  bool _buttonSwitchedLow = false;
-  bool _debounceTimerSet = false;
-  bool _debouncedButtonState = 0;
-  bool _currentButtonState = 0;
-  unsigned int _debounceTime = 10;
-  unsigned long _prevTime = 0;
+  bool _button_siwtched_high = false;
+  bool _button_switched_low = false;
+  bool _debounce_timer_set = false;
+  bool _debounced_button_state = 0;
+  bool _current_button_state = 0;
+  unsigned int _debounce_time = 10;
+  unsigned long _prev_time = 0;
 
 };
 

@@ -8,20 +8,20 @@ Library Functions
 
 	
 	// CREATE AN INSTANCE OF THE LIBRARY CLASS:
-	Debounce testSwitch(PIN);
+	Debounce test_switch(PIN);
 
 	// SET DEBOUNCE TIME:
-	testSwitch.setDebounceTime(100); // default is 10ms
+	test_switch.set_debounce_time(100); // default is 10ms
 
 	// FIND OUT WHAT STATE THE BUTTON HAS:
-	testSwitch.requestButtonState(); // returns 0 for low and 1 for high
+	test_switch.get_button_state(); // returns 0 for low and 1 for high
 
 	// FIND OUT IF THE BUTTON HAS SWITCHED TO HIGH
-	testSwitch.switchedHigh(); // returns 1 if a switch to high has happened
+	test_switch.switched_high(); // returns 1 if a switch to high has happened
 	// the high flag will be reset after one inquiry
 
 	// FIND OUT IF THE BUTTON HAS SWITCHED TO LOW
-	testSwitch.switchedLow(); // returns 1 if a switch to low has happened
+	test_switch.switched_low(); // returns 1 if a switch to low has happened
 	// the low flag will be reset after one inquiry
  
 
