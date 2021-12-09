@@ -30,7 +30,7 @@ private:
 
   // VARIABLES:
   byte _BUTTON_PIN;
-  bool _button_switched_high = false;
+  bool _button_siwtched_high = false;
   bool _button_switched_low = false;
   bool _debounce_timer_set = false;
   bool _debounced_button_state = 0;
